@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Single File Prototype</title>
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body id="prototype">
+		<div class="flex flex-col items-center justify-center w-screen h-screen bg-gradient-to-r from-indigo-900 to-violet-900">
+			<div class="flex items-center text-indigo-50">
+				<img class="w-20 h-20 overflow-hidden rounded-lg grayscale" src="https://pbs.twimg.com/profile_images/1449934029432635395/g713SnCo_400x400.jpg" alt="">
+				<div class="flex flex-col ml-4">
+					<span class="mt-1 font-serif text-2xl italic">{{ title }}</span>
+					<span class="ml-2 opacity-75">{{ name }}</span>
+					<!-- <span class="w-2 h-2 mt-2 rotate-45 bg-indigo-600 border border-indigo-400 rounded-sm"></span> -->
+				</div>
+			</div>
+			<div class="flex mt-12 space-x-4">
+				<a
+					v-for="link in links"
+					:key="link.name"
+					:href="link.url"
+					target="_blank"
+					class="font-light underline text-indigo-50 decoration-indigo-600 underline-offset-1 hover:decoration-indigo-400 hover:text-white">
+					{{ link.name }}
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script>
+	const app = Vue.createApp({
+	data() {
+		return {
+			title: '"G\'day! Welcome to the single file prototype."',
+			name: 'Rob Stinson',
+			links: [
+				{
+					name: "About",
+					url: 'https://robstinson.co/single-file-prototype'
+				},
+				{
+					name: "Codepen",
+					url: 'https://codepen.io/robstinson'
+				},
+				{
+					name: "Twitter",
+					url: 'https://twitter.com/rob_stino'
+				},
+				{
+					name: "Website",
+					url: 'https://robstinson.co'
+				}
+			]
+		}
+	},
+	methods: {
+		openDetailsModal() {
+				this.detailsModal = true
+			}
+		},
+	})
+	app.mount('#prototype')
+</script>
