@@ -8,16 +8,16 @@
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body id="prototype">
-		<div class="flex flex-col items-center justify-center w-screen h-screen bg-gradient-to-r from-indigo-900 to-violet-900">
-			<div class="flex items-center text-indigo-50">
+		<div class="flex flex-col items-center justify-center w-screen h-screen p-6 bg-gradient-to-r from-indigo-900 to-violet-900">
+			<div class="flex flex-col items-center text-indigo-50 md:flex-row">
 				<img class="w-20 h-20 overflow-hidden rounded-lg grayscale" src="https://pbs.twimg.com/profile_images/1449934029432635395/g713SnCo_400x400.jpg" alt="">
-				<div class="flex flex-col ml-4">
-					<span class="mt-1 font-serif text-2xl italic">{{ title }}</span>
-					<span class="ml-2 opacity-75">{{ name }}</span>
+				<div class="flex flex-col mt-4 md:ml-4 md:mt-0">
+					<span class="mt-1 font-serif text-2xl italic text-center md:text-left">{{ quote }}</span>
+					<span class="mt-2 text-center opacity-75 md:ml-2 md:text-left md:mt-0">{{ name }}</span>
 					<!-- <span class="w-2 h-2 mt-2 rotate-45 bg-indigo-600 border border-indigo-400 rounded-sm"></span> -->
 				</div>
 			</div>
-			<div class="flex mt-12 space-x-4">
+			<div class="flex flex-col flex-wrap items-center mt-12 sm:flex-row sm:space-x-4">
 				<a
 					v-for="link in links"
 					:key="link.name"
@@ -35,7 +35,7 @@
 	const app = Vue.createApp({
 	data() {
 		return {
-			title: '"G\'day! Welcome to the single file prototype."',
+			quote: '"G\'day! Welcome to the single file prototype."',
 			name: 'Rob Stinson',
 			links: [
 				{
